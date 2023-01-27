@@ -34,7 +34,7 @@ export class BoardsController {
   deleteBoard(@Param('id') id: string): void {
     this.boardsService.deleteBoard(id);
   }
-
+  //
   @Patch('/:id')
   updateBoardStatus(
     @Param('id') id: string,
