@@ -5,11 +5,13 @@ import { createBoardDto } from './dto/create-board.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BoardRepository } from './board.repository';
 import { Board } from './board.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class BoardsService {
   constructor(
-    @InjectRepository(BoardRepository) private boardRepository: BoardRepository,
+    @InjectRepository(Board)
+    private boardRepository: Repository<Board>,
   ) {}
   // getAllBoards(): Board[] {
   //   return this.boards;

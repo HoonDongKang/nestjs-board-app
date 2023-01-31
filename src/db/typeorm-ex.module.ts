@@ -14,6 +14,7 @@ export class TypeOrmExModule {
         TYPEORM_EX_CUSTOM_REPOSITORY,
         repository,
       );
+      console.log(entity);
 
       if (!entity) {
         continue;
