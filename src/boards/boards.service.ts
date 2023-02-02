@@ -3,28 +3,21 @@ import { BoardStatus } from './board-status.enum';
 import { v1 as uuid } from 'uuid';
 import { createBoardDto } from './dto/create-board.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { BoardRepository } from './board.repository';
 import { Board } from './board.entity';
 import { Repository } from 'typeorm';
+import { BoardRepository } from './board.repository';
 
 @Injectable()
 export class BoardsService {
   constructor(
-    @InjectRepository(Board)
-    private boardRepository: Repository<Board>,
+    @InjectRepository(BoardRepository)
+    private boardRepository: BoardRepository,
   ) {}
   // getAllBoards(): Board[] {
   //   return this.boards;
   // }
-  async createBoard(createBoardDto: createBoardDto): Promise<Board> {
-    const { title, description } = createBoardDto;
-    const board = this.boardRepository.create({
-      title,
-      description,
-      status: BoardStatus.PUBLIC,
-    });
-    await this.boardRepository.save(board);
-    return board;
+  createBoard(createBoardDto: createBoardDto): Promise<Board> {
+    return this.boardRepository.createBoard(createBoardDto);
   }
 
   // createBoard(createBoardDto: createBoardDto) {
