@@ -3,7 +3,7 @@ import { Repository, DataSource } from 'typeorm';
 import { User } from './user.entity';
 
 @Injectable()
-export class BoardRepository extends Repository<User> {
+export class UserRepository extends Repository<User> {
   constructor(private dataSource: DataSource) {
     super(User, dataSource.createEntityManager());
   }
