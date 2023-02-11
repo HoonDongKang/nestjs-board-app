@@ -8,7 +8,7 @@ import { Board } from 'src/boards/board.entity';
 //   username: 'postgres',
 //   password: 'postgres',
 //   database: 'board-app',
-//   entities: [__dirname + '../**/*.entity.{js,ts}'],
+//   entities: [Board, User],
 //   synchronize: true,
 // };
 export const typeORMConfig: TypeOrmModuleOptions = {
